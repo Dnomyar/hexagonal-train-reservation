@@ -6,12 +6,13 @@ import train.reservation.domain.model.Customer
 import train.reservation.domain.model.SeatBooked
 
 class SeatReservationService(bookedSeatRepository: BookedSeatRepository) {
-    def book(seat: Seat, customer: Customer): Unit = {
-        val seatBooked = bookedSeatRepository.find(seat).isDefined
-        if(! seatBooked){
-            bookedSeatRepository.save(
-                SeatBooked(seat, customer)
-            )
-        }
-    }    
+  def book(seat: Seat, customer: Customer): Unit = {
+    val seatBooked = bookedSeatRepository.find(seat).isDefined
+    if (!seatBooked) {
+      bookedSeatRepository.save(
+        SeatBooked(seat, customer)
+      )
+    }
+  }
 }
+
